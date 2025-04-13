@@ -1,0 +1,22 @@
+{
+  "title": "Alice Springs News",
+  "description": "The freedom of the press still furnishes that check upon government which no constitution has ever been able to provide - Chicago Tribune.",
+  "url": "https://alicespringsnews.com.au",
+  "email": "erwin@alicespringsnews.com.au",
+  "timezone": "Australia/Darwin",
+  "date_format": "j F Y",
+  "time_format": "g:i a",
+  "start_of_week": 1,
+  "language": "en_AU",
+  "use_smilies": true,
+  "default_category": 1,
+  "default_post_format": "0",
+  "posts_per_page": 10,
+  "show_on_front": "page",
+  "page_on_front": 82905,
+  "page_for_posts": 0,
+  "default_ping_status": "closed",
+  "default_comment_status": "open",
+  "site_logo": null,
+  "site_icon": 0
+}

@@ -1,18 +1,21 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import { defineConfig, SchemaTypeDefinition } from 'sanity';
+import { deskTool } from 'sanity/desk';
+import { visionTool } from '@sanity/vision';
+import { schemaTypes } from './schemaTypes';
+import getDeskStructure from './deskStructure';
 
 export default defineConfig({
   name: 'default',
   title: 'alice-springs-news',
-
-  projectId: '5r0s6ioh',
-  dataset: 'production',
-
-  plugins: [structureTool(), visionTool()],
-
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '5r0s6ioh',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  plugins: [
+    deskTool({
+      structure: (S) => getDeskStructure(S),
+    }),
+    ...(process.env.NODE_ENV !== 'production' ? [visionTool()] : []),
+  ],
   schema: {
-    types: schemaTypes,
+    types: schemaTypes as SchemaTypeDefinition[],
   },
-})
+});
